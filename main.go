@@ -1,4 +1,4 @@
-package main
+package atgo
 
 import (
 	"encoding/json"

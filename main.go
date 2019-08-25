@@ -8,17 +8,19 @@ import (
 )
 
 // func main() {
-// 	rate, err := GetAtCoderRate("Um_nik")
-// 	if err != nil {
-// 		fmt.Println(err)
-// 	}
-// 	fmt.Println(rate)
+// 	// rate, err := GetAtCoderRate("Um_nik")
+// 	// if err != nil {
+// 	// 	fmt.Println(err)
+// 	// }
+// 	// fmt.Println(rate)
+// 	data, _ := GetUserJSONData("yuji9511")
+// 	fmt.Println(data)
 // }
 
-// GetAtCoderRate return current rating
+// GetAtCoderRate returns current rating
 func GetAtCoderRate(userID string) (int, error) {
 	if userID == "" {
-		return -1, errors.New("user_id is blank")
+		return -1, errors.New("userID is blank")
 	}
 	url := "https://atcoder.jp/users/" + userID
 	out, err := http.Get(url)
@@ -49,4 +51,35 @@ func GetAtCoderRate(userID string) (int, error) {
 
 	return rating, nil
 
+}
+
+// GetUserJSONData returns all user data at https://atcoder.jp/users/{user_id}/history/json
+func GetUserJSONData(userID string) ([]AtCoderRating, error) {
+	var data []AtCoderRating
+	if userID == "" {
+		return data, errors.New("userID is blank")
+	}
+	url := "https://atcoder.jp/users/" + userID
+	out, err := http.Get(url)
+	if err != nil {
+		return data, err
+	}
+	if out.StatusCode != 200 {
+		return data, errors.New("User: " + userID + " doesn't exist")
+	}
+
+	jsonURL := "https://atcoder.jp/users/" + userID + "/history/json"
+	res, err := http.Get(jsonURL)
+	if err != nil {
+		return data, err
+	}
+	defer res.Body.Close()
+	byteArray, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return data, err
+	}
+	bytes := []byte(byteArray)
+	var result []AtCoderRating
+	json.Unmarshal(bytes, &result)
+	return result, nil
 }

@@ -13,8 +13,8 @@ import (
 // 	// 	fmt.Println(err)
 // 	// }
 // 	// fmt.Println(rate)
-// 	data, _ := GetUserJSONData("yuji9511")
-// 	fmt.Println(data)
+// 	// data, _ := GetUserJSONData("yuji9511")
+// 	// fmt.Println(data)
 // }
 
 // GetAtCoderRate returns current rating

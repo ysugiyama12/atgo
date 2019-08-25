@@ -1,3 +1,3 @@
-module github.com/ysugiyama12/main
+module github.com/ysugiyama12/atgo
 
 go 1.12

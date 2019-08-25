@@ -3,26 +3,25 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
-func main() {
-	//rate, err := GetAtCoderRate("tourist")
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//fmt.Println(rate)
-	//data, _ := GetUserJSONData("yuji9511")
-	//fmt.Println(data)
-	//
-	//color, _ := GetUserColor("tourist")
-	//fmt.Println(color)
-
-	data, _ := GetUser("yuji9511")
-	fmt.Println(data)
-}
+//func main() {
+//	//rate, err := GetAtCoderRate("tourist")
+//	//if err != nil {
+//	//	fmt.Println(err)
+//	//}
+//	//fmt.Println(rate)
+//	//data, _ := GetUserJSONData("yuji9511")
+//	//fmt.Println(data)
+//	//
+//	//color, _ := GetUserColor("tourist")
+//	//fmt.Println(color)
+//
+//	data, _ := GetUser("yuji9511")
+//	fmt.Println(data)
+//}
 
 func GetUser(userID string) (AtCoderUser, error) {
 	var result AtCoderUser

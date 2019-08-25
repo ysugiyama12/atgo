@@ -1,20 +1,19 @@
-package main
+package atgo
 
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
-func main() {
-	rate, err := GetAtCoderRate("Um_nik")
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(rate)
-}
+// func main() {
+// 	rate, err := GetAtCoderRate("Um_nik")
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	fmt.Println(rate)
+// }
 
 // GetAtCoderRate return current rating
 func GetAtCoderRate(userID string) (int, error) {

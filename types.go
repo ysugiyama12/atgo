@@ -1,4 +1,4 @@
-package main
+package atgo
 
 // AtCoderRating struct
 type AtCoderRating struct {
